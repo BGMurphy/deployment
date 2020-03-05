@@ -43,5 +43,23 @@ services:
     volumes:
       - my-db:/var/lib/mysql
       # Names our volume
+  auditlog:
+    image: audit-log
+    restart: always
+    ports:
+      - "8110:8110"
+  processingService:
+    image: processing-service
+    restart: always
+    port:
+      - "8100:8100"
+  dataStorage:
+    image: data-storage
+    port:
+      - "8090:8090"
+  eventReceiver:
+    image: event-receiver
+    port:
+      - "8080:8080"
 volumes:
   my-db:

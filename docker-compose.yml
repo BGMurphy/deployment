@@ -51,15 +51,15 @@ services:
   processingService:
     image: processing-service
     restart: always
-    port:
+    ports:
       - "8100:8100"
   dataStorage:
     image: data-storage
-    port:
+    ports:
       - "8090:8090"
   eventReceiver:
     image: event-receiver
-    port:
+    ports:
       - "8080:8080"
 volumes:
   my-db:

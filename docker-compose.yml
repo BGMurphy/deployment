@@ -51,6 +51,8 @@ services:
     depends_on:
       - "kafka"
       - "db"
+    volumes:
+      - ./auditLog:/config
   processingService:
     image: processing-service
     restart: always
@@ -59,6 +61,8 @@ services:
     depends_on:
       - "kafka"
       - "db"
+    volumes:
+      - ./processingService:/config
   dataStorage:
     image: data-storage
     ports:
@@ -66,6 +70,8 @@ services:
     depends_on:
       - "kafka"
       - "db"
+    volumes:
+      - ./dataStorage:/config
   eventReceiver:
     image: event-receiver
     ports:
@@ -73,5 +79,7 @@ services:
     depends_on:
       - "kafka"
       - "db"
+    volumes:
+      - ./eventReceiver:/config
 volumes:
   my-db:

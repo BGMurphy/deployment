@@ -52,7 +52,7 @@ services:
       - "kafka"
       - "db"
     volumes:
-      - ./auditLog:/config
+      - ../auditLog:/config
   processingService:
     image: processing-service
     restart: always
@@ -62,7 +62,7 @@ services:
       - "kafka"
       - "db"
     volumes:
-      - ./processingService:/config
+      - ../processingService:/config
   dataStorage:
     image: data-storage
     ports:
@@ -71,7 +71,7 @@ services:
       - "kafka"
       - "db"
     volumes:
-      - ./dataStorage:/config
+      - ../dataStorage:/config
   eventReceiver:
     image: event-receiver
     ports:
@@ -80,6 +80,6 @@ services:
       - "kafka"
       - "db"
     volumes:
-      - ./eventReceiver:/config
+      - ../eventReceiver:/config
 volumes:
   my-db:
